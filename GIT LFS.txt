@@ -3,11 +3,12 @@ HOW TO UPLOAD LARGE FILES IN GITHUB:
 
 Step0:
 ---------------------------------------------------------------------------------------------------------------------
-git lfs install
+Open command prompt
+
 
 Step1:
 ---------------------------------------------------------------------------------------------------------------
-Open command prompt
+git lfs install   #Need to install if the file size exceeds 100MB, if not no need to install GIT LFS.
 
 Step2:
 -----------------------------------------------------------------------------------------------------------------------------
@@ -18,23 +19,31 @@ Step3:
 Pass command: git init
 
 Step4:
+------------------------------------------------------------------------------------------------------------------------
+git lfs track "*.psd"
+
+Step5:
+--------------------------------------------------------------------------------------------------------------------------------
+git add .gitattributes
+
+Step6:
 ---------------------------------------------------------------------------------------------------------------------------------
 git add "*.mp4"
 
-Step5:
+Step7:
 ------------------------------------------------------------------------------------------------------------------------
 git commit -m "Add design file"
 
-Step6:
+Step8:
 -----------------------------------------------------------------------------------------------------------------------------------
 git remote add origin https://github.com/MOTURUPRAVEENBHARGAV/gitlfs-Desktop.git      -- (Pass the new repository file when u created in GitHub)
 
 
-Step7:
+Step9:
 --------------------------------------------------------------------------------------------------------------------------------------------
 git push -u origin master   -- if it doesn't work then skip this and try out Step8
 
-Step8:
+Step10:
 -------------------------------------------------------------------------------------------------------------------------------------
 git push origin master --force
 
@@ -44,4 +53,15 @@ git push origin master --force
 #WHAT ARE THE OTHER TYPES OF EXTENSION FILES CAN BE ADDED:
 =================================================================
 
-dir = To check the list of files in the particular folder
+1)dir = To check the list of files in the particular folder
+
+2)With the "track" command, you can tell LFS to take care of the file:
+To Track the files which you considered LARGE
+git lfs track "*.iso"                 # select the file extensions that you want to treat as large files
+
+MAKE SURE that .gitattributes is tracked by Git. Otherwise Git LFS will not be working properly for people cloning the project:
+git add .gitattributes
+
+3)git add -A
+
+4) To add selected files : git add "praveen.csv" "arun.csv" "meena.mp4"
